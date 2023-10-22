@@ -1,5 +1,7 @@
 import path from 'node:path'
 import process from 'node:process'
+import { VueLoaderPlugin } from 'vue-loader'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const config = {
   entry: './src/main.js',
@@ -9,9 +11,13 @@ const config = {
   },
   mode: 'production',
   module: {
-    rules: []
+    rules: [
+      { test: /\.vue$/, loader: 'vue-loader' },
+      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
+      { test: /\.sass$/, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] }
+    ]
   },
-  plugins: []
+  plugins: [new VueLoaderPlugin(), new MiniCssExtractPlugin()]
 }
 
 export default config

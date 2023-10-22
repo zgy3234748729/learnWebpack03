@@ -1,14 +1,7 @@
-// import { createApp, ref } from 'vue';
+import { createApp, ref } from 'vue';
 
-// import App from './App.vue'
+import App from './App.vue'
+import './index.css'
 
-// const app = createApp(App);
-// app.mount('#app')
-let a = 1;
-const test = 2;
-const zgy = 3
-console.log(a);
-console.log(test,zgy)
-a = 2;
-test = 4;
-zgy = 10;
+const app = createApp(App);
+app.mount('#app')
